@@ -4,9 +4,41 @@
     <meta charset="UTF-8">
     <title>Jerry Liao's Website</title>
 </head>
+<link rel="stylesheet" href="background.css">
 <style>
+    body {
+        /*overflow-x: hidden;*/
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+
+    .bg-text {
+        text-align: center;
+        font-size: 20px;
+        font-family: "JetBrains Mono", "Microsoft YaHei", monospace;
+        position: relative;
+        /*top: 50%;*/
+        margin: auto;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(255, 255, 255);
+        top: 30%;
+        /*z-index: top;*/
+    }
+
     .cont {
         text-align: center;
+        font-size: 30px;
+        font-family: "JetBrains Mono", "Microsoft YaHei", monospace;
+        position: relative;
+        /*top: 50%;*/
+        margin: auto;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(255, 255, 255);
+        top: 10%;
     }
 
     .text {
@@ -14,36 +46,57 @@
         text-align: center;
         font-family: "Arial Black", Arial, sans-serif;
     }
-    #current-time{
-        font-size: 25px;
+
+    #current-time {
         text-align: center;
+        font-size: 20px;
+        font-family: "JetBrains Mono", "Microsoft YaHei", monospace;
+        position: relative;
+        /*top: 50%;*/
+        margin: auto;
+        left: 50%;
+        top: 15%;
+        transform: translate(-50%, -50%);
+        color: rgb(255, 255, 255);
+        /*z-index: top;*/
     }
 
 </style>
 <script>
     function updateTime() {
         let now = new Date();
+        let year = now.getFullYear();
+        let month = now.getMonth() + 1;
+        let day = now.getDate();
         let hours = now.getHours();
         let minutes = now.getMinutes();
         let seconds = now.getSeconds();
+
+        let dateString = year + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
         let timeString = hours + ':' + (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-        document.getElementById('current-time').innerText = "Present Time:" + timeString;
+
+        document.getElementById('current-time').innerText = "Present Date & Time: " + dateString + " " + timeString;
     }
 
     // 每秒更新一次时间
     setInterval(updateTime, 1000);
 </script>
+
 <body>
-<h1 class="cont">Jerry Liao's Website</h1><br>
-<p id="current-time"></p><br>
-<div class="text">This page now has nothing.</div>
-<br>
-<div class="cont">Author: Jerry Liao</div>
-<br>
-<div class="cont">Date: Jun 21, 2024</div>
-<br>
-<div class="cont">Location: Jiangxi, China</div>
-<br>
+<div id="page-bg">
+
+    <h1 class="cont">Jerry Liao's Website</h1><br>
+    <p id="current-time"></p><br>
+    <div class="bg-text">
+        <div class="text">This page now has nothing.</div>
+        <br>
+        <div class="con">Author: Jerry Liao</div>
+        <br>
+        <div class="con">Update: Feb 24, 2024</div>
+        <br>
+        <div class="con">Location: Jiangxi, China</div>
+        <br></div>
+</div>
 
 
 </body>
